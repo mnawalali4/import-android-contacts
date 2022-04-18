@@ -9,8 +9,7 @@ import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 
 class adaptar(private val datalist: List<data_holder>) : RecyclerView.Adapter<adaptar.ViewHolder>() {
-//    private var tittle = arrayOf("nawal", "ali","nawal")
-//    private var images = intArrayOf(R.drawable.ano,R.drawable.ano,R.drawable.ano)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adaptar.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout,parent,false)
@@ -19,8 +18,10 @@ class adaptar(private val datalist: List<data_holder>) : RecyclerView.Adapter<ad
 
     override fun onBindViewHolder(holder: adaptar.ViewHolder, position: Int) {
         val dataHolder = datalist[position]
-       holder.itemtittle.text = dataHolder.name
+        holder.itemtittle.text = dataHolder.name
         holder.itemimage.setImageResource(dataHolder.img)
+        holder.itemphone.text = dataHolder.phone
+        holder.itembio.text = dataHolder.bio
     }
 
     override fun getItemCount(): Int {
@@ -31,6 +32,8 @@ class adaptar(private val datalist: List<data_holder>) : RecyclerView.Adapter<ad
     {
         var itemimage: ImageView = itemView.findViewById(R.id.itemimage)
         var itemtittle: TextView = itemView.findViewById(R.id.itemtittle)
+        var itemphone: TextView = itemView.findViewById(R.id.itemphone)
+        var itembio: TextView = itemView.findViewById(R.id.itembio)
 
     }
 }

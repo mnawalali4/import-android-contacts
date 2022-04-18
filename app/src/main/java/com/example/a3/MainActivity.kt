@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         layoutManager = LinearLayoutManager(this)
-       val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
+        val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerview.layoutManager=LinearLayoutManager(this)
 
         var mydatalist = ArrayList<data_holder>()
