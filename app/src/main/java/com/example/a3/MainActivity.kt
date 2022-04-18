@@ -16,7 +16,13 @@ class MainActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
        val recyclerview = findViewById<RecyclerView>(R.id.recyclerview)
         recyclerview.layoutManager=LinearLayoutManager(this)
-        adapter = adaptar()
+
+        var mydatalist = ArrayList<data_holder>()
+        for (i in 1..3)
+        {
+            mydatalist.add(data_holder(R.drawable.ano, "Item ","033","bio"))
+        }
+        adapter = adaptar(mydatalist)
         recyclerview.adapter=adapter
     }
 }

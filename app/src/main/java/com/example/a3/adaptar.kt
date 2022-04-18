@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 
-class adaptar : RecyclerView.Adapter<adaptar.ViewHolder>() {
-    private var tittle = arrayOf("nawal", "ali","nawal")
-    private var images = intArrayOf(R.drawable.ano,R.drawable.ano,R.drawable.ano)
+class adaptar(private val datalist: List<data_holder>) : RecyclerView.Adapter<adaptar.ViewHolder>() {
+//    private var tittle = arrayOf("nawal", "ali","nawal")
+//    private var images = intArrayOf(R.drawable.ano,R.drawable.ano,R.drawable.ano)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adaptar.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_layout,parent,false)
@@ -18,22 +18,19 @@ class adaptar : RecyclerView.Adapter<adaptar.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: adaptar.ViewHolder, position: Int) {
-       holder.itemtittle.text = tittle[position]
-        holder.itemimage.setImageResource(images[position])
+        val dataHolder = datalist[position]
+       holder.itemtittle.text = dataHolder.name
+        holder.itemimage.setImageResource(dataHolder.img)
     }
 
     override fun getItemCount(): Int {
-        return tittle.size
+        return datalist.size
     }
 
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
     {
-        var itemimage: ImageView
-        var itemtittle: TextView
+        var itemimage: ImageView = itemView.findViewById(R.id.itemimage)
+        var itemtittle: TextView = itemView.findViewById(R.id.itemtittle)
 
-        init {
-            itemimage = itemView.findViewById(R.id.itemimage)
-            itemtittle = itemView.findViewById(R.id.itemtittle)
-        }
     }
 }
