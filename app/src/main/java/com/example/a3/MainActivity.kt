@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         recyclerview.layoutManager=LinearLayoutManager(this)
 
         var mydatalist = ArrayList<data_holder>()
-        for (i in 1..3)
+
+        for (i in 1..10)
         {
             mydatalist.add(data_holder(R.drawable.ano, "Item ","033","bio"))
         }
