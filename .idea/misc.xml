@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.352" />
+        <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/drawable/ic_launcher_background.xml" value="0.352" />
+        <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/drawable/ic_person_add.xml" value="0.352" />
+        <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/layout/card_layout.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/gng/Desktop/A3/app/src/main/res/layout/dialoguebox.xml" value="0.33" />
       </map>
