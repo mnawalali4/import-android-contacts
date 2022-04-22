@@ -1,21 +1,23 @@
 package com.example.a3
 
 import android.content.ContentResolver
+import android.content.ContentUris
 import android.content.pm.PackageManager
 import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.BufferedInputStream
+import java.io.InputStream
+
 
 class MainActivity : AppCompatActivity() {
     private var layoutManager: RecyclerView.LayoutManager? = null
@@ -34,14 +36,21 @@ class MainActivity : AppCompatActivity() {
 
         var mydatalist = ArrayList<data_holder>()
 
-        for (i in 1..10)
+        /*for (i in 1..10)
         {
             mydatalist.add(data_holder(R.drawable.ano, "Item ","033","bio"))
-        }
+        }*/
+
+        var dataBase = db(this)
+
+        getcontacts()
+
+        mydatalist=dataBase.getAllContacts()
+
         adapter = adaptar(mydatalist)
         recyclerview.adapter=adapter
 
-        getcontacts()
+
 
 
     }
@@ -57,6 +66,9 @@ class MainActivity : AppCompatActivity() {
         var uri: Uri =ContactsContract.CommonDataKinds.Phone.CONTENT_URI
         var cursor: Cursor?=contentResolver.query(uri,null,null,null,null)
 
+        var database:db
+        database= db(this)
+
         if (cursor != null) {
             if(cursor.count >0)
             {
@@ -70,7 +82,17 @@ class MainActivity : AppCompatActivity() {
                         cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
                     var address: String = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DATA))
 
-                    Log.i("demo", contactName+address)
+
+
+
+                    val contact=data_holder(R.drawable.ano,contactName,contactNumber,contactName)
+                    var status=database.insertContact(contact)
+                    if(status>-1)
+                    {
+                        Log.d("TAG", "Contact added")
+                    }
+
+                  //  Log.i("demo", contactName+address)
                 }
             }
 
